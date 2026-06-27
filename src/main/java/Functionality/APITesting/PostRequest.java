@@ -25,16 +25,16 @@ public class PostRequest {
         // Prepare form-encoded payload manually
         String postData =
                 "grant_type=password" +
-                "&client_id=IoTAppsTest_dp2iadqadt03_APPID" +
-                "&client_secret=idcscs-26799968-34d1-49e2-b38d-2e7b1c9e26f5" +
-                "&username=iot-cloudops_ww_grp@oracle.com" +
-                "&password=Welcome1234%23" +
-                "&scope=https://dp2iadqadt03-test.internal.iot.ocs.oraclecloud.comurn:opc:resource:consumer:saas:iotapps::all";
+                "&client_id=xxx_APPID" +
+                "&client_secret=idcscs-" +
+                "&username=grp@oracle.com" +
+                "&password=Welcome" +
+                "&scope=test";
 
         // Send the post request
         // Use RequestOptions to set POST data
         APIResponse response = request.post(
-                "https://idcs-59cec39f77284bd582573933afe92981.identity.oraclecloud.com/oauth2/v1/token",
+                "https://idcs-59.com",
                 RequestOptions.create().setData(postData)
         );
         String body = "";
@@ -57,7 +57,7 @@ public class PostRequest {
         headersDeviceType.put("Authorization", "Bearer " + accessToken.getAsString());
         APIRequestContext requestDeviceType = playwright.request().newContext(
                 new APIRequest.NewContextOptions().setExtraHTTPHeaders(headersDeviceType));
-        APIResponse responseDeviceType = requestDeviceType.get("https://dp2iadqadt03-test.internal.iot.ocs.oraclecloud.com/ecp/dm/clientapi/v1/device-types/details");
+        APIResponse responseDeviceType = requestDeviceType.get("https://xyz/ecp/dm/clientapi/v1/device-types/details");
 
         System.out.println("Status Code = " + responseDeviceType.status());
         String responseBody = responseDeviceType.text();
