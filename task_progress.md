@@ -1,0 +1,6 @@
+- [ ] List all Java files to be converted (under src/main/java/)
+- [ ] Create output directory for JavaScript files
+- [ ] Convert each Java file to equivalent Playwright JavaScript
+- [ ] Save JavaScript files in the new directory (matching structure where helpful)
+- [ ] (Optional) Test a sample converted file to verify functionality
+- [ ] Verify all files are converted and structured as required
